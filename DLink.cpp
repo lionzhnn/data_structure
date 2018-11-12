@@ -1,4 +1,6 @@
 //Doubly Linked link
+//[]->[]->[]->[]->[]
+//<------------增长方向
 class DLNode
 {
 public:
