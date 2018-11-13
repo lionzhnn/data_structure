@@ -1,4 +1,4 @@
-# hello-word
+# data_stucture
 ALink是以数组实现的线性表 <br/> 
 LLink是以指针实现的线性表，只有后向指针 <br/> 
 DLLink是以指针实现的线性表，有前后向指针 <br/> 
@@ -10,3 +10,5 @@ pop(): 从栈顶弹出一个成员；<br/>
 empty(): 如果栈为空返回true，否则返回false；<br/>
 top(): 返回栈顶，但不删除成员；<br/>
 size(): 返回栈内元素的大小；<br/>
+AQueue是以数组实现的队列 <br/> 
+LQueue是以指针实现的队列，只有后向指针 <br/> 
