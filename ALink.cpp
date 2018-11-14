@@ -1,4 +1,5 @@
 //array link
+//当线性表空间被耗尽时，将数组长度加倍
 class ALink
 {
 private:
@@ -37,9 +38,9 @@ public:
 	int getValue();
 };
 //线性表
-ALink::ALink(int max=0)
+ALink::ALink(int max = 0)
 {
-	curr=length = 0;
+	curr = length = 0;
 	maxLen = max;
 	elemnts = new int[max];
 }
@@ -51,14 +52,20 @@ ALink::~ALink()
 void ALink::clear()
 {
 	delete[] elemnts;
-	curr=length = 0;
+	curr = length = 0;
 	elemnts = new int[maxLen];
 }
 //插入元素
 void ALink::insert(int x)
 {
 	if (length >= maxLen)
-		return;
+	{
+		maxLen = 2 * maxLen;
+		int* temp = new int[maxLen];
+		memcpy(temp, elemnts, length*sizeof(int));
+		delete[] elemnts;
+		elemnts = temp;
+	}
 	for (int i = curr; i < length; i++)
 		elemnts[i + 1] = elemnts[i];
 	elemnts[curr] = x;
@@ -68,17 +75,23 @@ void ALink::insert(int x)
 void ALink::append(int x)
 {
 	if (length >= maxLen)
-		return;
+	{
+		maxLen = 2 * maxLen;
+		int* temp = new int[maxLen];
+		memcpy(temp, elemnts, length*sizeof(int));
+		delete[] elemnts;
+		elemnts = temp;
+	}
 	elemnts[length++] = x;
 }
 //移除元素
 int ALink::remove()
 {
 	int temp = elemnts[curr];
-	if (length <=0)
+	if (length <= 0)
 		return 0;
-	for (int i = curr; i < length-1; i++)
-		elemnts[i] = elemnts[i+1];
+	for (int i = curr; i < length - 1; i++)
+		elemnts[i] = elemnts[i + 1];
 	length--;
 	return temp;
 }
@@ -102,7 +115,7 @@ void ALink::prev()
 //表指针移后一位
 void ALink::next()
 {
-	if (curr >= length-1)
+	if (curr >= length - 1)
 		return;
 	curr++;
 }
@@ -119,7 +132,7 @@ int ALink::currPos()
 //移动到确定位置
 void ALink::moveToPos(int position)
 {
-	if (position < 0 || position >= length-1)
+	if (position < 0 || position >= length - 1)
 		return;
 	curr = position;
 }
