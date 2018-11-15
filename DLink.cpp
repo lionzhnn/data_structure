@@ -72,6 +72,12 @@ void DLLink::clear()
 //插入元素
 void DLLink::insert(int x)
 {
+	//如果当前链表中没有元素，则相当于做append操作
+	if(length==0)
+	{
+		append(x);
+		return;
+	}
 	curr->next = curr->next->prev=new DLNode(x, curr,curr->next);
 	if (tail == curr)
 		tail = curr->next;
