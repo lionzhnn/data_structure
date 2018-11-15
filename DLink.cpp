@@ -82,7 +82,7 @@ void DLLink::insert(int x)
 //添加到链表尾
 void DLLink::append(int x)
 {
-	tail->prev = tail = new DLNode(x, tail,nullptr);
+	tail =tail->next=new DLNode(x, tail,nullptr);
 	length++;
 }
 //移除元素
