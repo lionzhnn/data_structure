@@ -20,3 +20,4 @@
   front(): 返回队首元素，即最早进入队列的元素;<br/>
   back()：返回队尾元素，即最后进入队列的元素;<br/>
 LDQueue双端队列，可以从两部分操作 <br/> 
+  leetcode为leetcode解题代码
