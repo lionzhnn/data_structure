@@ -46,8 +46,6 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 int removeDuplicates(vector<int>& nums) {
         if(nums.size() == 0) 
             return 0;
-        if(nums.size() ==1)
-            return 1;
         int length=1;
         for(int i=1;i<nums.size();i++)
         {
