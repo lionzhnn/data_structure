@@ -48,31 +48,11 @@ int removeDuplicates(vector<int>& nums) {
             return 0;
         if(nums.size() ==1)
             return 1;
-        auto baseNum=nums[0];
-        auto curNum=nums[1];
-        int indexForward=1;
         int length=1;
-        for(int j=1;j<nums.size();j++)
+        for(int i=1;i<nums.size();i++)
         {
-            if(curNum==baseNum)
-            {
-                //前移一位
-                for(int i=indexForward;i!=(nums.size()-1);i++)
-                {
-                    nums[i]=nums[i+1];
-                }
-                //把重复的数值放到最后
-                nums[nums.size()-1]=curNum;
-                curNum=nums[indexForward];
-            }
-            if(curNum>baseNum)
-            {
-                baseNum=curNum;
-                indexForward=indexForward+1;
-                length=length+1;
-                if(indexForward<nums.size())
-                    curNum=nums[indexForward];
-            }
+            if(nums[length-1] != nums[i])
+                nums[length++]=nums[i];
         }
         return length;
 }
