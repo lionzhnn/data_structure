@@ -54,3 +54,15 @@ int removeDuplicates(vector<int>& nums) {
         }
         return length;
 }
+//27. Remove Element
+int removeElement(vector<int>& nums, int val) {
+        int lenght=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]!=val)
+            {
+                nums[lenght++]=nums[i];
+            }
+        }
+        return lenght;        
+}
