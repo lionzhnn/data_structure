@@ -90,3 +90,21 @@ int strStr(string haystack, string needle) {
         }
         return -1;        
 }
+//717. 1-bit and 2-bit Characters
+bool isOneBitCharacter(vector<int>& bits) {
+        if(bits.size()==1)
+            return true;
+        if(bits[bits.size()-2]==0) //倒数第二个字符为0，最后一个零只能为第一个字符
+            return true;
+        int i=0;
+        while(i<bits.size())
+        {
+            if(bits[i]==1) //跳过第二个字母的第二个字符0或者1
+                i=i+2;
+            else
+                i=i+1; //跳过第一个字符
+            if(i==(bits.size()-1)) //到达最后一个字符0
+                return true;
+        }
+        return false;        
+}
